@@ -15,14 +15,14 @@ def post_function(id = None):
 # post_function()
 
 def put_function():
-   dt = json.dumps({'id':2,'full_name':'Sujan Raj','salary':2000,'address':'Thali'})
+   dt = json.dumps({'id':3,'full_name':'Sujan Raj','salary':2000,'address':'Thali'})
    res = requests.put(url='http://127.0.0.1:8000/api/',data=dt)
    print(res.json())
 
 # put_function()
 
 def delete_function():
-   dt = json.dumps({'id':2})
+   dt = json.dumps({'id':3})
    res = requests.delete(url='http://127.0.0.1:8000/api/',data=dt)
    print(res.json())
 
