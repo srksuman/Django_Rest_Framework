@@ -1,2 +1,2 @@
 # Django Rest Framework
-https://www.django-rest-framework.org/img/logo.png
+<img href="https://www.django-rest-framework.org/img/logo.png">
