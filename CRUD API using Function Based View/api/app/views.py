@@ -1,3 +1,5 @@
+from functools import partial
+import re
 from django.shortcuts import render
 from django.http import JsonResponse
 import io
@@ -35,6 +37,24 @@ def apiFunction(request):
             return JsonResponse({'message':'Data is post successfully'})
         else:
             return JsonResponse(serializer.errors)
+
+    if request.method == 'PUT':
+        stream = io.BytesIO(request.body)
+        python_data = JSONParser().parse(stream)
+        id = python_data.get('id')
+        obj = Teacher.objects.get(id = id)
+        print(obj)
+        print(obj.full_name)
+        serializer = TeacherSerializer(obj,data=python_data,partial=True)
+        if serializer.is_valid():
+            print(serializer)
+            serializer.save()
+            obj = Teacher.objects.get(id = id)
+            print(obj.full_name)
+            return JsonResponse({'message':'Data is updated successfully!'})
+        else:
+            return JsonResponse(serializer.errors)
+
 
         
 

@@ -12,4 +12,11 @@ def post_function(id = None):
    res = requests.post(url='http://127.0.0.1:8000/api/',data=dt)
    print(res.json())
 
-post_function()
+# post_function()
+
+def put_function():
+   dt = json.dumps({'id':3,'full_name':'Sujan Raj','salary':2000,'address':'Thali'})
+   res = requests.put(url='http://127.0.0.1:8000/api/',data=dt)
+   print(res.json())
+
+put_function()
