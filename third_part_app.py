@@ -19,4 +19,11 @@ def put_function():
    res = requests.put(url='http://127.0.0.1:8000/api/',data=dt)
    print(res.json())
 
-put_function()
+# put_function()
+
+def delete_function():
+   dt = json.dumps({'id':3})
+   res = requests.delete(url='http://127.0.0.1:8000/api/',data=dt)
+   print(res.json())
+
+delete_function()

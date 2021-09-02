@@ -47,13 +47,26 @@ def apiFunction(request):
         print(obj.full_name)
         serializer = TeacherSerializer(obj,data=python_data,partial=True)
         if serializer.is_valid():
-            print(serializer)
             serializer.save()
             obj = Teacher.objects.get(id = id)
-            print(obj.full_name)
             return JsonResponse({'message':'Data is updated successfully!'})
         else:
             return JsonResponse(serializer.errors)
+
+    if request.method == 'DELETE':
+        stream = io.BytesIO(request.body)
+        python_data = JSONParser().parse(stream)
+        obj = Teacher.objects.get(id = python_data.get('id'))
+        if python_data.get('id') is not None:
+            obj.delete()
+            return JsonResponse({'Message':'Data is deleted successfully! '})
+        else:
+            return JsonResponse({'Message':'Cannot delete! '})
+
+
+
+    
+
 
 
         

@@ -14,3 +14,4 @@ class TeacherSerializer(serializers.Serializer):
         instance.salary = validated_data.get('salary',instance.salary)
         instance.save()
         return instance
+
