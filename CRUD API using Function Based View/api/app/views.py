@@ -61,7 +61,7 @@ def apiFunction(request):
             obj.delete()
             return JsonResponse({'Message':'Data is deleted successfully! '})
         else:
-            return JsonResponse({'Message':'Cannot delete! '})
+            return JsonResponse({'Message':'Cannot delete!'})
 
 
 
