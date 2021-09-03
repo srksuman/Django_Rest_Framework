@@ -1,13 +1,5 @@
-from django.shortcuts import render
-from django.views import View
-from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
-import re
-
-from rest_framework import serializers
 from .serializer import TeacherSerializer
 from .models import Teacher
-import io
 from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
